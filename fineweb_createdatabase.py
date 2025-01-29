@@ -26,6 +26,7 @@ data_reader = ParquetReader("hf://datasets/HuggingFaceFW/fineweb/data/CC-MAIN-20
 # 加上skip 还是要下载，只是下载完会跳过
 
 skip_count = 0
+conn.execute("PRAGMA cache_size = -20000") # 4秒1千条 1k个document大概1 million 单词，有明显效果 默认-2000
 # 处理文档并存入数据库
 for document in data_reader():
     print(document.id)
