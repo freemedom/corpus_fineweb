@@ -10,3 +10,4 @@ JOIN target_rows t ON w.rowid BETWEEN t.row_num - 8 AND t.row_num + 8
 JOIN word_mapping wm ON w.word_id = wm.id
 ORDER BY w.rowid;
 -- 没有给words表建索引的话大概1分钟到2分钟，建索引后应该几秒
+-- 10GB数据库 固态硬盘1分45秒 机械硬盘3分30秒
